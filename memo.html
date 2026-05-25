@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mémo Réseaux DVR</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
+
+:root{
+
+--bg:#050816;
+
+--bg2:#08111f;
+
+--card:#0E1728;
+
+--card2:#131F35;
+
+--accent:#00D4FF;
+
+--accent2:#7C3AED;
+
+--text:#F8FAFC;
+
+--muted:#8EA1C0;
+
+--border:rgba(255,255,255,.06);
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:
+
+radial-gradient(circle at top left,#102347,transparent 30%),
+
+radial-gradient(circle at top right,#311453,transparent 35%),
+
+var(--bg);
+
+color:white;
+
+}
+
+/* HERO */
+
+.hero{
+
+padding:80px;
+
+padding-bottom:50px;
+
+}
+
+.hero-content{
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.eyebrow{
+
+color:var(--accent);
+
+font-size:14px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+}
+
+.hero h1{
+
+font-size:82px;
+
+font-weight:900;
+
+margin-top:15px;
+
+}
+
+.gradient-text{
+
+background:
+
+linear-gradient(
+90deg,
+#00D4FF,
+#7C3AED
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+.hero p{
+
+margin-top:20px;
+
+font-size:20px;
+
+line-height:1.8;
+
+color:var(--muted);
+
+}
+
+.hero-actions{
+
+margin-top:40px;
+
+display:flex;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:16px 28px;
+
+border-radius:18px;
+
+text-decoration:none;
+
+background:#131d33;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.primary{
+
+background:
+
+linear-gradient(
+135deg,
+#00D4FF,
+#7C3AED
+);
+
+}
+
+.btn:hover{
+
+transform:translateY(-6px);
+
+}
+
+/* STATS */
+
+.top-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:20px;
+
+padding:0 80px;
+
+margin-bottom:50px;
+
+}
+
+.stat{
+
+padding:35px;
+
+background:
+
+rgba(255,255,255,.03);
+
+border:1px solid var(--border);
+
+backdrop-filter:blur(20px);
+
+border-radius:28px;
+
+}
+
+.stat strong{
+
+display:block;
+
+font-size:38px;
+
+margin-bottom:12px;
+
+}
+
+/* LAYOUT */
+
+.layout{
+
+display:flex;
+
+gap:40px;
+
+padding:0 80px 80px;
+
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+width:270px;
+
+position:sticky;
+
+top:30px;
+
+height:max-content;
+
+padding:30px;
+
+border-radius:30px;
+
+background:
+
+rgba(255,255,255,.03);
+
+backdrop-filter:blur(25px);
+
+}
+
+.sidebar h3{
+
+margin-bottom:25px;
+
+}
+
+.nav-link{
+
+display:block;
+
+padding:15px;
+
+border-radius:14px;
+
+color:#96A8C7;
+
+text-decoration:none;
+
+margin-bottom:10px;
+
+transition:.25s;
+
+}
+
+.nav-link:hover{
+
+background:
+
+linear-gradient(
+90deg,
+rgba(0,212,255,.15),
+rgba(124,58,237,.15)
+);
+
+color:white;
+
+transform:translateX(8px);
+
+}
+
+/* CONTENT */
+
+.content{
+
+flex:1;
+
+}
+
+section{
+
+padding:45px;
+
+margin-bottom:35px;
+
+background:
+
+linear-gradient(
+180deg,
+var(--card),
+var(--card2)
+);
+
+border-radius:34px;
+
+border:1px solid var(--border);
+
+}
+
+.section-head{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+margin-bottom:35px;
+
+}
+
+.num{
+
+width:60px;
+
+height:60px;
+
+border-radius:20px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:800;
+
+background:
+
+linear-gradient(
+135deg,
+#00D4FF,
+#7C3AED
+);
+
+}
+
+h2{
+
+font-size:42px;
+
+}
+
+/* CARDS */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
+}
+
+.mini-card{
+
+padding:30px;
+
+background:#091222;
+
+border-radius:24px;
+
+transition:.3s;
+
+}
+
+.mini-card:hover{
+
+transform:
+
+translateY(-8px);
+
+}
+
+/* TABLE */
+
+table{
+
+width:100%;
+
+margin-top:30px;
+
+border-collapse:collapse;
+
+overflow:hidden;
+
+border-radius:20px;
+
+}
+
+th{
+
+background:#081320;
+
+padding:22px;
+
+}
+
+td{
+
+padding:20px;
+
+background:#0D1828;
+
+}
+
+tr:hover td{
+
+background:#13213B;
+
+}
+
+/* CODE */
+
+.code-wrap{
+
+margin-top:35px;
+
+overflow:hidden;
+
+border-radius:28px;
+
+}
+
+.code-title{
+
+padding:20px;
+
+background:#071221;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+pre{
+
+background:#02060F;
+
+padding:35px;
+
+overflow:auto;
+
+}
+
+code{
+
+color:#00D4FF;
+
+font-size:15px;
+
+line-height:2;
+
+}
+
+/* DETAILS */
+
+details{
+
+margin-bottom:18px;
+
+background:#0C1728;
+
+padding:25px;
+
+border-radius:18px;
+
+}
+
+summary{
+
+cursor:pointer;
+
+font-weight:700;
+
+}
+
+/* FOOTER */
+
+.footer{
+
+text-align:center;
+
+padding:50px;
+
+color:#62708D;
+
+}
+
+/* MOBILE */
+
+@media(max-width:1200px){
+
+.layout{
+
+flex-direction:column;
+
+}
+
+.sidebar{
+
+width:100%;
+
+position:relative;
+
+}
+
+.top-grid{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.hero h1{
+
+font-size:54px;
+
+}
+
+}
+
+</style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">⚡ Révision rapide + commandes Cisco</span>
+        <h1>Mémo <span class="gradient-text">Réseaux DVR</span></h1>
+        <p>Un support propre pour réviser : VLAN, trunk, router-on-a-stick, switch L3, routage statique, IPv6, VLSM, DHCP, DNS, SSH et commandes de vérification.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#methodes">Commencer la méthode</a>
+          <a class="btn" href="#qcm">Mini QCM</a>
+          <a class="btn" href="#commandes">Commandes clés</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="top-grid">
+      <div class="stat"><strong>12</strong><span>blocs de révision</span></div>
+      <div class="stat"><strong>VLAN</strong><span>access, trunk, native</span></div>
+      <div class="stat"><strong>L3</strong><span>routeur + switch niveau 3</span></div>
+      <div class="stat"><strong>CLI</strong><span>commandes copiables</span></div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h3>Navigation</h3>
+        <a class="nav-link" href="#base">01 · Bases réseau</a>
+        <a class="nav-link" href="#ipv4">02 · IPv4</a>
+        <a class="nav-link" href="#subnetting">03 · Subnetting</a>
+        <a class="nav-link" href="#vlan">04 · VLAN</a>
+        <a class="nav-link" href="#trunk">05 · Trunk</a>
+        <a class="nav-link" href="#intervlan">06 · Inter-VLAN</a>
+        <a class="nav-link" href="#statique">07 · Routage statique</a>
+        <a class="nav-link" href="#ipv6">08 · IPv6</a>
+        <a class="nav-link" href="#services">09 · Services</a>
+        <a class="nav-link" href="#ssh">10 · Accès distant</a>
+        <a class="nav-link" href="#securite">11 · Sécurité de base</a>
+        <a class="nav-link" href="#routes-types">12 · Types routes</a>
+        <a class="nav-link" href="#table-route">13 · Table routage</a>
+        <a class="nav-link" href="#methodes">14 · Méthode DVR</a>
+        <a class="nav-link" href="#qcm">15 · QCM</a>
+      </aside>
+
+      <div class="content">
+        <section id="base">
+          <div class="section-head"><span class="num">1</span><h2>Bases réseau</h2></div>
+          <div class="cards">
+            <div class="mini-card"><strong>Switch L2</strong><p>Exemple Cisco 2960. Relie les machines dans un même réseau local.</p></div>
+            <div class="mini-card"><strong>Routeur</strong><p>Exemple Cisco 1941. Relie des réseaux différents et fait le routage.</p></div>
+            <div class="mini-card"><strong>Switch L3</strong><p>Exemple Cisco 3560-24PS. Switch qui peut faire le routage inter-VLAN avec SVI.</p></div>
+          </div>
+          <table>
+            <tr><th>Couche</th><th>Rôle</th><th>Unité</th></tr>
+            <tr><td>Application</td><td>HTTP, DNS, DHCP</td><td>Données</td></tr>
+            <tr><td>Transport</td><td>TCP / UDP</td><td>Segment</td></tr>
+            <tr><td>Réseau</td><td>IP + routage</td><td>Paquet</td></tr>
+            <tr><td>Liaison</td><td>MAC + Ethernet</td><td>Trame</td></tr>
+            <tr><td>Physique</td><td>Câbles / signaux</td><td>Bits</td></tr>
+          </table>
+          <div class="note"><strong>Encapsulation :</strong> Données → Segment → Paquet IP → Trame Ethernet → Bits.</div>
+          <h3>Commandes globales à connaître</h3>
+          <div class="code-wrap"><div class="code-title">Global config</div><pre><code>configure terminal
+ip routing
+ipv6 unicast-routing
+no ip domain-lookup</code></pre></div>
+        </section>
+
+        <section id="ipv4">
+          <div class="section-head"><span class="num">2</span><h2>Adressage IPv4</h2></div>
+          <p>Un PC a besoin de : adresse IP, masque, passerelle par défaut et DNS si on utilise des noms.</p>
+          <table>
+            <tr><th>Classe</th><th>Premier octet</th><th>Masque par défaut</th></tr>
+            <tr><td>A</td><td>1 → 126</td><td>/8</td></tr>
+            <tr><td>B</td><td>128 → 191</td><td>/16</td></tr>
+            <tr><td>C</td><td>192 → 223</td><td>/24</td></tr>
+          </table>
+          <div class="warning"><strong>Règle :</strong> même réseau + même VLAN = communication directe. Sinon, il faut un routeur ou switch L3.</div>
+        </section>
+
+        <section id="subnetting">
+          <div class="section-head"><span class="num">3</span><h2>Subnetting, CIDR, VLSM</h2></div>
+          <table>
+            <tr><th>Préfixe</th><th>Masque</th><th>Adresses</th><th>Hôtes</th></tr>
+            <tr><td>/24</td><td>255.255.255.0</td><td>256</td><td>254</td></tr>
+            <tr><td>/25</td><td>255.255.255.128</td><td>128</td><td>126</td></tr>
+            <tr><td>/26</td><td>255.255.255.192</td><td>64</td><td>62</td></tr>
+            <tr><td>/27</td><td>255.255.255.224</td><td>32</td><td>30</td></tr>
+            <tr><td>/28</td><td>255.255.255.240</td><td>16</td><td>14</td></tr>
+            <tr><td>/30</td><td>255.255.255.252</td><td>4</td><td>2</td></tr>
+          </table>
+          <div class="note"><strong>VLSM :</strong> classer les besoins du plus grand au plus petit, puis choisir le masque qui suffit.</div>
+        </section>
+
+        <section id="vlan">
+          <div class="section-head"><span class="num">4</span><h2>VLAN</h2></div>
+          <p>Un VLAN est une séparation logique. Il sert à organiser, sécuriser et réduire le broadcast.</p>
+          <table>
+            <tr><th>VLAN</th><th>Ports</th><th>Réseau</th></tr>
+            <tr><td>VLAN 10</td><td>1 → 10</td><td>179.16.1.0/24</td></tr>
+            <tr><td>VLAN 20</td><td>11 → 19</td><td>179.16.2.0/24</td></tr>
+            <tr><td>VLAN 30</td><td>20 → 24</td><td>179.16.3.0/24</td></tr>
+          </table>
+          <div class="code-wrap"><div class="code-title">Création VLAN <button class="copy-btn" onclick="copyCode('code-vlan')">Copier</button></div><pre><code id="code-vlan">enable
+configure terminal
+vlan 10
+name VLAN10
+exit
+vlan 20
+name VLAN20
+exit
+vlan 30
+name VLAN30
+exit
+
+interface range fastEthernet 0/1-10
+switchport mode access
+switchport access vlan 10
+exit
+
+interface range fastEthernet 0/11-19
+switchport mode access
+switchport access vlan 20
+exit
+
+interface range fastEthernet 0/20-24
+switchport mode access
+switchport access vlan 30
+exit
+
+show vlan brief</code></pre></div>
+        </section>
+
+        <section id="trunk">
+          <div class="section-head"><span class="num">5</span><h2>Trunk</h2></div>
+          <p>Un trunk transporte plusieurs VLAN entre switchs ou entre switch et routeur.</p>
+          <div class="code-wrap"><div class="code-title">Port trunk <button class="copy-btn" onclick="copyCode('code-trunk')">Copier</button></div><pre><code id="code-trunk">interface gigabitEthernet 0/1
+switchport mode trunk
+exit
+show interfaces trunk</code></pre></div>
+          <div class="code-wrap"><div class="code-title">Limiter les VLAN autorisés</div><pre><code>interface gigabitEthernet 0/1
+switchport trunk allowed vlan 10,20
+exit</code></pre></div>
+          <div class="warning"><strong>Si tu oublies le trunk :</strong> les VLAN ne passent pas entre les switchs.</div>
+        </section>
+
+        <section id="intervlan">
+          <div class="section-head"><span class="num">6</span><h2>Routage inter-VLAN</h2></div>
+          <p>Deux VLAN différents ne communiquent pas directement. Il faut un routeur ou un switch niveau 3.</p>
+          <h3>Router-on-a-stick</h3>
+          <div class="code-wrap"><div class="code-title">Sous-interfaces routeur <button class="copy-btn" onclick="copyCode('code-roas')">Copier</button></div><pre><code id="code-roas">interface gigabitEthernet 0/0
+no shutdown
+exit
+
+interface gigabitEthernet 0/0.10
+encapsulation dot1Q 10
+ip address 179.16.1.1 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.20
+encapsulation dot1Q 20
+ip address 179.16.2.1 255.255.255.0
+exit
+
+interface gigabitEthernet 0/0.30
+encapsulation dot1Q 30
+ip address 179.16.3.1 255.255.255.0
+exit</code></pre></div>
+          <h3>Switch niveau 3</h3>
+          <div class="code-wrap"><div class="code-title">SVI + ip routing <button class="copy-btn" onclick="copyCode('code-l3')">Copier</button></div><pre><code id="code-l3">ip routing
+
+interface vlan 10
+ip address 179.16.1.1 255.255.255.0
+no shutdown
+exit
+
+interface vlan 20
+ip address 179.16.2.1 255.255.255.0
+no shutdown
+exit
+
+interface vlan 30
+ip address 179.16.3.1 255.255.255.0
+no shutdown
+exit
+
+show ip route</code></pre></div>
+          <div class="danger"><strong>À ne pas oublier :</strong> sur switch L3, la commande <code>ip routing</code> est obligatoire.</div>
+        </section>
+
+        <section id="statique">
+          <div class="section-head"><span class="num">7</span><h2>Routage statique IPv4</h2></div>
+          <div class="cards">
+            <div class="mini-card"><strong>Route normale</strong><p><code>ip route réseau masque next-hop</code></p></div>
+            <div class="mini-card"><strong>Route par défaut</strong><p><code>ip route 0.0.0.0 0.0.0.0 next-hop</code></p></div>
+          </div>
+          <div class="code-wrap"><div class="code-title">Exemple routeur <button class="copy-btn" onclick="copyCode('code-route')">Copier</button></div><pre><code id="code-route">no ip domain-lookup
+
+interface gigabitEthernet 0/0
+ip address 179.1.1.1 255.255.255.0
+no shutdown
+exit
+
+interface serial 0/0/0
+ip address 199.1.12.1 255.255.255.252
+clock rate 64000
+no shutdown
+exit
+
+ip route 0.0.0.0 0.0.0.0 199.1.12.2
+
+show ip interface brief
+show ip route</code></pre></div>
+        </section>
+
+        <section id="ipv6">
+          <div class="section-head"><span class="num">8</span><h2>IPv6</h2></div>
+          <p>IPv6 utilise 128 bits. Les adresses link-local commencent souvent par <strong>FE80::</strong>.</p>
+          <div class="code-wrap"><div class="code-title">Interface IPv6 <button class="copy-btn" onclick="copyCode('code-ipv6')">Copier</button></div><pre><code id="code-ipv6">ipv6 unicast-routing
+
+interface gigabitEthernet 0/0
+ipv6 address 2001:db8:10::1/64
+ipv6 address fe80::10 link-local
+no shutdown
+exit
+
+show ipv6 interface brief
+show ipv6 route</code></pre></div>
+        </section>
+
+        <section id="services">
+          <div class="section-head"><span class="num">9</span><h2>DHCP, DNS, Web</h2></div>
+          <table>
+            <tr><th>Service</th><th>Rôle</th></tr>
+            <tr><td>DHCP</td><td>Donne IP, masque, passerelle et DNS automatiquement.</td></tr>
+            <tr><td>DNS</td><td>Transforme un nom en adresse IP.</td></tr>
+            <tr><td>Web</td><td>Serveur HTTP/HTTPS avec page index.html.</td></tr>
+          </table>
+        </section>
+
+        <section id="ssh">
+          <div class="section-head"><span class="num">10</span><h2>Accès distant</h2></div>
+          <div class="code-wrap"><div class="code-title">IP de gestion switch L2 <button class="copy-btn" onclick="copyCode('code-svi')">Copier</button></div><pre><code id="code-svi">interface vlan 1
+ip address 192.168.1.10 255.255.255.0
+no shutdown
+exit
+ip default-gateway 192.168.1.1</code></pre></div>
+          <div class="code-wrap"><div class="code-title">SSH <button class="copy-btn" onclick="copyCode('code-ssh')">Copier</button></div><pre><code id="code-ssh">hostname SW1
+ip domain-name isamm.local
+username admin secret cisco
+crypto key generate rsa
+line vty 0 4
+login local
+transport input ssh
+exit</code></pre></div>
+        </section>
+
+        <section id="securite">
+          <div class="section-head"><span class="num">11</span><h2>Sécurité de base Cisco</h2></div>
+          <p>Ces commandes reviennent souvent dans les TP : nom de l’équipement, bannière, mot de passe enable, console, VTY, SSH.</p>
+          <div class="code-wrap"><div class="code-title">Configuration de base sécurisée <button class="copy-btn" onclick="copyCode('code-secure')">Copier</button></div><pre><code id="code-secure">enable
+configure terminal
+hostname SW1
+banner motd # Accès réservé aux utilisateurs autorisés #
+enable secret cisco
+
+line console 0
+password console123
+login
+exit
+
+line vty 0 4
+password vty123
+login
+exit
+
+service password-encryption
+copy running-config startup-config</code></pre></div>
+          <div class="warning"><strong>Telnet :</strong> fonctionne mais n’est pas sécurisé. <strong>SSH :</strong> est préférable car il chiffre la connexion.</div>
+        </section>
+
+        <section id="routes-types">
+          <div class="section-head"><span class="num">12</span><h2>Types de routes statiques</h2></div>
+          <div class="cards">
+            <div class="mini-card"><strong>Next-hop</strong><p>On donne l’IP du routeur voisin.</p></div>
+            <div class="mini-card"><strong>Interface de sortie</strong><p>On donne l’interface locale de sortie.</p></div>
+            <div class="mini-card"><strong>Fully specified</strong><p>On donne interface de sortie + next-hop.</p></div>
+            <div class="mini-card"><strong>Route flottante</strong><p>Route de secours avec une AD plus grande.</p></div>
+          </div>
+          <div class="code-wrap"><div class="code-title">Modèles IPv4 / IPv6 <button class="copy-btn" onclick="copyCode('code-route-types')">Copier</button></div><pre><code id="code-route-types">! Route statique avec next-hop
+ip route RESEAU_DEST MASQUE IP_NEXT_HOP
+
+! Route avec interface de sortie
+ip route RESEAU_DEST MASQUE INTERFACE_SORTIE
+
+! Route fully specified
+ip route RESEAU_DEST MASQUE INTERFACE_SORTIE IP_NEXT_HOP
+
+! Route par défaut IPv4
+ip route 0.0.0.0 0.0.0.0 IP_NEXT_HOP
+
+! Route par défaut IPv6
+ipv6 route ::/0 IPV6_NEXT_HOP
+
+! Route flottante IPv4, AD = 5
+ip route RESEAU_DEST MASQUE IP_NEXT_HOP 5
+
+! Route flottante IPv6, AD = 5
+ipv6 route RESEAU_DEST/PREFIXE IPV6_NEXT_HOP 5</code></pre></div>
+        </section>
+
+        <section id="table-route">
+          <div class="section-head"><span class="num">13</span><h2>Lire la table de routage</h2></div>
+          <p>La commande <code>show ip route</code> affiche les réseaux connus et comment le routeur les a appris.</p>
+          <table>
+            <tr><th>Code</th><th>Signification</th><th>Explication simple</th></tr>
+            <tr><td>L</td><td>Local</td><td>Adresse IP configurée directement sur une interface.</td></tr>
+            <tr><td>C</td><td>Connected</td><td>Réseau directement connecté au routeur.</td></tr>
+            <tr><td>S</td><td>Static</td><td>Route ajoutée manuellement par l’administrateur.</td></tr>
+            <tr><td>O</td><td>OSPF</td><td>Route apprise dynamiquement avec OSPF.</td></tr>
+            <tr><td>*</td><td>Candidate default</td><td>Route par défaut possible, gateway of last resort.</td></tr>
+          </table>
+          <div class="code-wrap"><div class="code-title">Surveillance / monitoring <button class="copy-btn" onclick="copyCode('code-monitoring')">Copier</button></div><pre><code id="code-monitoring">show ip interface brief
+show interfaces
+show vlan
+show vlan brief
+show interfaces trunk
+show ip route
+show ipv6 route
+show mac address-table
+show running-config
+show startup-config</code></pre></div>
+        </section>
+
+        <section id="methodes">
+          <div class="section-head"><span class="num">14</span><h2>Méthode DVR</h2></div>
+          <ol class="checklist">
+            <li>Lire l’architecture.</li>
+            <li>Identifier les réseaux, VLAN, passerelles et trunks.</li>
+            <li>Configurer les PC.</li>
+            <li>Configurer VLAN + ports access.</li>
+            <li>Configurer les trunks.</li>
+            <li>Configurer routage : statique, router-on-a-stick ou switch L3.</li>
+            <li>Tester avec <code>ping</code>.</li>
+            <li>Vérifier avec les commandes <code>show</code>.</li>
+          </ol>
+          <div id="commandes" class="code-wrap"><div class="code-title">Commandes de vérification</div><pre><code>show running-config
+show ip interface brief
+show vlan brief
+show interfaces trunk
+show ip route
+show ipv6 route
+show mac address-table
+ping
+traceroute</code></pre></div>
+        </section>
+
+        <section id="qcm">
+          <div class="section-head"><span class="num">15</span><h2>Mini QCM DVR</h2></div>
+          <details><summary>Quelle commande sauvegarde la configuration ?</summary><p><code>copy running-config startup-config</code></p></details>
+          <details><summary>Quelle différence entre C et S dans show ip route ?</summary><p><code>C</code> = réseau connecté directement. <code>S</code> = route statique ajoutée manuellement.</p></details>
+          <details><summary>Quelle commande chiffre les mots de passe visibles ?</summary><p><code>service password-encryption</code></p></details>
+          <details open><summary>Deux VLAN peuvent-ils communiquer directement ?</summary><p>Non. Il faut un routeur ou un switch L3.</p></details>
+          <details><summary>Quelle commande vérifie les VLAN ?</summary><p><code>show vlan brief</code></p></details>
+          <details><summary>Quelle commande active le routage sur switch L3 ?</summary><p><code>ip routing</code></p></details>
+          <details><summary>Quelle commande pour Router-on-a-stick ?</summary><p><code>encapsulation dot1Q numéro_vlan</code></p></details>
+          <details><summary>Quelle commande désactive la recherche DNS ?</summary><p><code>no ip domain-lookup</code></p></details>
+        </section>
+
+        <p class="footer">Mémo design amélioré · Révision DVR Réseaux</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyCode(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btns = document.querySelectorAll('.copy-btn');
+        btns.forEach(b => { if (b.onclick && b.getAttribute('onclick')?.includes(id)) { b.textContent = 'Copié ✅'; setTimeout(() => b.textContent = 'Copier', 1200); } });
+      });
+    }
+  </script>
+</body>
+</html>
